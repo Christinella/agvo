@@ -7,8 +7,6 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Serializer\Annotation\Groups;
-
 
 #[ORM\Entity(repositoryClass: DestinationsRepository::class)]
 class Destinations
@@ -16,58 +14,38 @@ class Destinations
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    #[Groups(['api_destinations_index',])]
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups(['api_destinations_index',])]
     private ?string $nom = null;
 
-
     #[ORM\Column(length: 255)]
-    #[Groups(['api_destinations_index',])]
     private ?string $image = null;
 
     #[ORM\Column]
-    #[Groups(['api_destinations_index',])]
     private ?int $prix = null;
 
-    #[ORM\Column(length: 255)]
-    #[Groups(['api_destinations_index',])]
-    private ?string $categorie = null;
-
     #[ORM\Column(type: Types::DATE_MUTABLE)]
-    #[Groups(['api_destinations_index',])]
     private ?\DateTimeInterface $dateDepart = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
-    #[Groups(['api_destinations_index',])]
     private ?\DateTimeInterface $dateArrivee = null;
-
-    #[ORM\ManyToOne(inversedBy: 'Destinations')]
-    #[Groups(['api_destinations_index',])]
-    private ?User $user = null;
-
-    #[ORM\ManyToOne(inversedBy: 'destinations')]
-    #[Groups(['api_destinations_index',])]
-    private ?Pays $Pays = null;
 
     /**
      * @var Collection<int, Categories>
      */
-    #[ORM\ManyToMany(targetEntity: Categories::class, inversedBy: 'destinations')]
-    private Collection $Categorie;
+    #[ORM\ManyToMany(targetEntity: Categories::class, mappedBy: 'Destinations')]
+    private Collection $categories;
 
-    /**
-     * @var Collection<int, FormReservation>
-     */
-    #[ORM\OneToMany(targetEntity: FormReservation::class, mappedBy: 'destinations')]
-    private Collection $FormRservation;
+    #[ORM\ManyToOne(inversedBy: 'destinations')]
+    private ?User $user = null;
+
+    #[ORM\ManyToOne(inversedBy: 'destinations')]
+    private ?Pays $Pays = null;
 
     public function __construct()
     {
-        $this->Categorie = new ArrayCollection();
-        $this->FormRservation = new ArrayCollection();
+        $this->categories = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -111,18 +89,6 @@ class Destinations
         return $this;
     }
 
-    public function getCategorie(): ?string
-    {
-        return $this->categorie;
-    }
-
-    public function setCategorie(string $categorie): static
-    {
-        $this->categorie = $categorie;
-
-        return $this;
-    }
-
     public function getDateDepart(): ?\DateTimeInterface
     {
         return $this->dateDepart;
@@ -147,6 +113,33 @@ class Destinations
         return $this;
     }
 
+    /**
+     * @return Collection<int, Categories>
+     */
+    public function getCategories(): Collection
+    {
+        return $this->categories;
+    }
+
+    public function addCategory(Categories $category): static
+    {
+        if (!$this->categories->contains($category)) {
+            $this->categories->add($category);
+            $category->addDestination($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCategory(Categories $category): static
+    {
+        if ($this->categories->removeElement($category)) {
+            $category->removeDestination($this);
+        }
+
+        return $this;
+    }
+
     public function getUser(): ?User
     {
         return $this->user;
@@ -167,52 +160,6 @@ class Destinations
     public function setPays(?Pays $Pays): static
     {
         $this->Pays = $Pays;
-
-        return $this;
-    }
-
-    public function addCategorie(Categories $categorie): static
-    {
-        if (!$this->Categorie->contains($categorie)) {
-            $this->Categorie->add($categorie);
-        }
-
-        return $this;
-    }
-
-    public function removeCategorie(Categories $categorie): static
-    {
-        $this->Categorie->removeElement($categorie);
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, FormReservation>
-     */
-    public function getFormRservation(): Collection
-    {
-        return $this->FormRservation;
-    }
-
-    public function addFormRservation(FormReservation $formRservation): static
-    {
-        if (!$this->FormRservation->contains($formRservation)) {
-            $this->FormRservation->add($formRservation);
-            $formRservation->setDestinations($this);
-        }
-
-        return $this;
-    }
-
-    public function removeFormRservation(FormReservation $formRservation): static
-    {
-        if ($this->FormRservation->removeElement($formRservation)) {
-            // set the owning side to null (unless already changed)
-            if ($formRservation->getDestinations() === $this) {
-                $formRservation->setDestinations(null);
-            }
-        }
 
         return $this;
     }

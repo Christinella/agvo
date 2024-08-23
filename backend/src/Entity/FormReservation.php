@@ -25,10 +25,6 @@ class FormReservation
     #[ORM\Column(length: 255)]
     private ?string $email = null;
 
-    #[ORM\ManyToOne(inversedBy: 'FormRservation')]
-    #[Groups(['api_FormReservation_index',])]
-    private ?Destinations $destinations = null;
-
     #[ORM\ManyToOne(inversedBy: 'formReservations')]
     #[Groups(['api_FormReservation_index',])]
     private ?Statut $Statut = null;
@@ -70,18 +66,6 @@ class FormReservation
     public function setEmail(string $email): static
     {
         $this->email = $email;
-
-        return $this;
-    }
-
-    public function getDestinations(): ?Destinations
-    {
-        return $this->destinations;
-    }
-
-    public function setDestinations(?Destinations $destinations): static
-    {
-        $this->destinations = $destinations;
 
         return $this;
     }

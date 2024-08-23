@@ -29,6 +29,8 @@ class Pays
         $this->destinations = new ArrayCollection();
     }
 
+
+
     public function getId(): ?int
     {
         return $this->id;
@@ -75,4 +77,6 @@ class Pays
 
         return $this;
     }
+
+
 }

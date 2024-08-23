@@ -12,7 +12,6 @@
                 <th>Nom</th>
                 <th>Image</th>
                 <th>Prix</th>
-                <th>Categorie</th>
                 <th>DateDepart</th>
                 <th>DateArrivee</th>
                 <th>actions</th>
@@ -25,7 +24,6 @@
                 <td>{{ destination.nom }}</td>
                 <td>{{ destination.image }}</td>
                 <td>{{ destination.prix }}</td>
-                <td>{{ destination.categorie }}</td>
                 <td>{{ destination.dateDepart ? destination.dateDepart|date('Y-m-d') : '' }}</td>
                 <td>{{ destination.dateArrivee ? destination.dateArrivee|date('Y-m-d') : '' }}</td>
                 <td>
@@ -35,7 +33,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="8">no records found</td>
+                <td colspan="7">no records found</td>
             </tr>
         {% endfor %}
         </tbody>

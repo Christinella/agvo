@@ -15,11 +15,11 @@ class CategoriesType extends AbstractType
     {
         $builder
             ->add('nom')
-            // ->add('destinations', EntityType::class, [
-            //     'class' => Destinations::class,
-            //     'choice_label' => 'id',
-            //     'multiple' => true,
-            // ])
+            ->add('Destinations', EntityType::class, [
+                'class' => Destinations::class,
+                'choice_label' => 'nom',
+                'multiple' => true,
+            ])
         ;
     }
 

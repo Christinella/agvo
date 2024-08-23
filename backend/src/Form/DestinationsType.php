@@ -2,10 +2,10 @@
 
 namespace App\Form;
 
-use App\Entity\Categories;
-use App\Entity\Destinations;
 use App\Entity\Pays;
 use App\Entity\User;
+use App\Entity\Categories;
+use App\Entity\Destinations;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -19,12 +19,16 @@ class DestinationsType extends AbstractType
             ->add('nom')
             ->add('image')
             ->add('prix')
-           
             ->add('dateDepart', null, [
                 'widget' => 'single_text',
             ])
             ->add('dateArrivee', null, [
                 'widget' => 'single_text',
+            ])
+            ->add('categories', EntityType::class, [
+                'class' => Categories::class,
+                'choice_label' => 'nom',
+                'multiple' => true,
             ])
             ->add('user', EntityType::class, [
                 'class' => User::class,
@@ -33,11 +37,6 @@ class DestinationsType extends AbstractType
             ->add('Pays', EntityType::class, [
                 'class' => Pays::class,
                 'choice_label' => 'nom',
-            ])
-            ->add('Categorie', EntityType::class, [
-                'class' => Categories::class,
-                'choice_label' => 'nom',
-              
             ])
         ;
     }
