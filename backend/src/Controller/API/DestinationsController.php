@@ -10,17 +10,17 @@ use Symfony\Component\Routing\Attribute\Route;
 #[Route('/api/destinations', name: 'api_destinations')]
 class DestinationsController extends AbstractController
 {
-    #[Route('/', name: 'index')]
-    public function index(DestinationsRepository $destinationsRepository): Response
-    {
-       $destinations= $destinationsRepository->findAll();
-       return $this->json($destinations,context: ['groups' => 'api_destinations_index']);
-    }
+   #[Route('/', name: 'index')]
+   public function index(DestinationsRepository $destinationsRepository): Response
+   {
+      $destinations = $destinationsRepository->findAll();
+      return $this->json($destinations, context: ['groups' => 'api_destinations_index']);
+   }
 
-    #[Route('/{name}', name: 'show')]
-    public function show(destinations $destinations): Response
-    {
-      
-       return $this->json($destinations,context: ['groups' => [ 'api_destinations_show']]);
-    }
+   #[Route('/{name}', name: 'show')]
+   public function show(destinations $destinations): Response
+   {
+
+      return $this->json($destinations, context: ['groups' => ['api_destinations_show']]);
+   }
 }
