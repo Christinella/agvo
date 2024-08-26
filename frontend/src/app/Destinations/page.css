@@ -1,0 +1,30 @@
+/* Destinations.css */
+
+.destination-list {
+    list-style-type: none; /* Enlève les puces */
+    padding: 0; /* Enlève le padding par défaut */
+  }
+  
+  .destination-item {
+    display: flex; /* Utilise Flexbox pour aligner les éléments horizontalement */
+    align-items: center; /* Centre les éléments verticalement */
+    margin-bottom: 20px; /* Ajoute de l'espace entre les éléments de la liste */
+  }
+  
+  .destination-image {
+    width: 100px; /* Largeur de l'image */
+    height: 100px; /* Hauteur de l'image */
+    object-fit: cover; /* Recadre l'image pour qu'elle remplisse le conteneur sans déformer l'image */
+    margin-right: 15px; /* Espace entre l'image et les informations */
+    border-radius: 8px; /* Coins arrondis de l'image */
+  }
+  
+  .destination-info {
+    flex: 1; /* Permet à la section d'information de remplir l'espace restant */
+  }
+  
+  .destination-info p {
+    margin: 0; /* Enlève le margin par défaut du paragraphe */
+    font-size: 16px; /* Taille de la police */
+  }
+  

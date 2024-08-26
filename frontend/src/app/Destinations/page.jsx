@@ -1,9 +1,10 @@
+'use client'; 
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 export default function Destinations() {
-  const [destination, setDestinations] = useState([]);
-
+  const [destinations, setDestinations] = useState([]);
+  
   useEffect(() => {
     getDestinations().then((res) => {
       setDestinations(res.data);
@@ -26,7 +27,19 @@ export default function Destinations() {
   }
 
   return (
-    
-  <div>caca</div>
+    <main className="flex min-h-screen flex-col items-center justify-between p-2 bg-white">
+            <div className="flex items-center flex-wrap w-5/6 my-4">
+            
+    <h1>Destination List</h1>
+    <ul>
+        {destinations.map(destination => (
+            <li key={destination.id}>
+                {destination.image && <img src={destination.image} alt={destination.nom} />}
+               
+            </li>
+        ))}
+    </ul>
+  </div>
+</main>
   );
 }
