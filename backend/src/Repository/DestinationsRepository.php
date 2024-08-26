@@ -15,7 +15,14 @@ class DestinationsRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Destinations::class);
     }
-
+    public function findAllWithCategories()
+    {
+        return $this->createQueryBuilder('d')
+            ->leftJoin('d.categories', 'c')
+            ->addSelect('c') // Important pour charger les catégories
+            ->getQuery()
+            ->getResult();
+    }
     //    /**
     //     * @return Destinations[] Returns an array of Destinations objects
     //     */

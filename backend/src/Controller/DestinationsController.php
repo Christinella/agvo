@@ -17,8 +17,10 @@ class DestinationsController extends AbstractController
     #[Route('/', name: 'app_destinations_index', methods: ['GET'])]
     public function index(DestinationsRepository $destinationsRepository): Response
     {
+        $destinations = $destinationsRepository->findAllWithCategories();
+        
         return $this->render('destinations/index.html.twig', [
-            'destinations' => $destinationsRepository->findAll(),
+            'destinations' => $destinations,
         ]);
     }
 

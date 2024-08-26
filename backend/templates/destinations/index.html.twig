@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Destinations index{% endblock %}
+{% block title %}Destinations {% endblock %}
 
 {% block body %}
-    <h1>Destinations index</h1>
+    <h1>Destinations </h1>
 
     <table class="table">
         <thead>
@@ -12,6 +12,7 @@
                 <th>Nom</th>
                 <th>Image</th>
                 <th>Prix</th>
+                <th>Categorie</th>
                 <th>DateDepart</th>
                 <th>DateArrivee</th>
                 <th>actions</th>
@@ -23,12 +24,23 @@
                 <td>{{ destination.id }}</td>
                 <td>{{ destination.nom }}</td>
                 <td>{{ destination.image }}</td>
+                <td>
+                    {% if destination.categories is not empty %}
+                        <ul>
+                            {% for category in destination.categories %}
+                                <li>{{ category.nom }}</li> {# Assurez-vous que la propriété 'nom' existe dans l'entité Category #}
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        N/A
+                    {% endif %}
+                </td>
                 <td>{{ destination.prix }}</td>
                 <td>{{ destination.dateDepart ? destination.dateDepart|date('Y-m-d') : '' }}</td>
                 <td>{{ destination.dateArrivee ? destination.dateArrivee|date('Y-m-d') : '' }}</td>
                 <td>
-                    <a href="{{ path('app_destinations_show', {'id': destination.id}) }}">show</a>
-                    <a href="{{ path('app_destinations_edit', {'id': destination.id}) }}">edit</a>
+                    <a href="{{ path('app_destinations_show', {'id': destination.id}) }}" class="btn btn-light">show</a>
+                    <a href="{{ path('app_destinations_edit', {'id': destination.id}) }}"  class="btn btn-success">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -39,5 +51,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_destinations_new') }}">Create new</a>
+    <a href="{{ path('app_destinations_new') }}" class="btn btn-primary">Create new</a>
 {% endblock %}
