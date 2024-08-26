@@ -1,24 +1,28 @@
-#Travelling
-L'objectif de ce projet est de créer un site pour une agence de voyage, qui présente tous les voyages que l'agence propose, et permettra de les chercher par catégories, par pays et par durée.
 
-Il sera possible au visiteur de prendre contact via un formulaire, en choisissant le voyage qui l’intéresse pour être recontacté ultérieurement par l’agence.
+Travelling
+Description du Projet
+Le projet Travelling vise à créer un site web pour une agence de voyage. Ce site permettra aux visiteurs de découvrir et de rechercher des voyages proposés par l'agence en fonction de critères tels que la catégorie, le pays, et la durée. Les visiteurs pourront également contacter l'agence via un formulaire pour exprimer leur intérêt pour un voyage spécifique, afin d'être recontactés ultérieurement.
 
-De leur côté les administrateurs pourront gérer les voyages, en ajouter, les modifier ou les supprimer. Il pourront également voir toutes les demandes de contact, et en changer le statut (non lue, en cours, annulée, acceptée).
+Pour les administrateurs, le site offre des fonctionnalités de gestion des voyages : ajout, modification et suppression de voyages. De plus, les administrateurs pourront consulter et gérer toutes les demandes de contact en changeant leur statut (non lue, en cours, annulée, acceptée).
 
-#Installation
-Lors de l'installation, veuillez renseigner dans le fichier .env , les bonnes informations relatives à la base de données.
+Installation
+Configuration de l'Environnement
 
-##Migration
-Pour la migration, importez les fichiers situé dans /migrations dans votre base de données MySQL.
+Créez un fichier .env à la racine du projet.
+Remplissez ce fichier avec les informations de connexion à votre base de données.
+Migration
 
-Si vous souhaitez faire des modifications avant la création de la base de données, c'est dans ces fichiers que vous devez modifier les choses.
+Importez les fichiers situés dans le répertoire /migrations dans votre base de données MySQL.
+Si vous souhaitez apporter des modifications à la structure de la base de données avant sa création, modifiez les fichiers de migration en conséquence.
+Objectifs du Projet
+Respect du Cahier des Charges : Le projet répondra aux exigences spécifiées.
+Site Fonctionnel en Ligne : Le site sera mis en ligne et pleinement opérationnel.
+Sécurité Backend : Le backend sera sécurisé, avec une API accessible uniquement depuis le site frontend et une administration protégée par des rôles et une authentification forte.
+Responsive Design : Le site sera entièrement responsive, garantissant une utilisation optimale sur tous les types d'appareils.
+Documentation de la Mise en Ligne : La procédure de mise en ligne sera documentée.
+Déploiement Continu : Le projet adoptera une approche de déploiement continu, avec des mises en production régulières après chaque mise à jour fonctionnelle majeure pour assurer un suivi et une vérification continue du bon fonctionnement du site.
+Design
+Pour visualiser le design du site, consultez le design Figma: https://www.figma.com/design/1nJLtS3FN03uEWhfou1mIo/Untitled?node-id=0-1&t=oMOfb8WjpYaOodjy-1
 
-Objectifs du projet
-Le cahier des charges sera respecté
-Le site sera mis en ligne et fonctionnel
-Le back sera sécurisé, autant pour l'API, joignable que par le site front, que l'administration, avec les rôles et un accès sous authentification forte
-Le site sera responsive
-La mise en ligne sera documentée
-Le projet sera conçu en déploiement continu, c'est-à-dire qu'à chaque mise à jour fonctionnelle majeure, une mise en production sera effectuée, afin de toujours vérifier au fur et à mesure du développement que tout fonctionne.
-
-Projet à réaliser seul sur 8 jours et demi.
+Délai de Réalisation
+Le projet est à réaliser en solo sur une période de 8 jours et demi.
