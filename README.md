@@ -1,11 +1,11 @@
 
-Travelling
+# Travelling
 Description du Projet
 Le projet Travelling vise à créer un site web pour une agence de voyage. Ce site permettra aux visiteurs de découvrir et de rechercher des voyages proposés par l'agence en fonction de critères tels que la catégorie, le pays, et la durée. Les visiteurs pourront également contacter l'agence via un formulaire pour exprimer leur intérêt pour un voyage spécifique, afin d'être recontactés ultérieurement.
 
 Pour les administrateurs, le site offre des fonctionnalités de gestion des voyages : ajout, modification et suppression de voyages. De plus, les administrateurs pourront consulter et gérer toutes les demandes de contact en changeant leur statut (non lue, en cours, annulée, acceptée).
 
-Installation
+# Installation
 Configuration de l'Environnement
 
 Créez un fichier .env à la racine du projet.
@@ -21,7 +21,8 @@ Sécurité Backend : Le backend sera sécurisé, avec une API accessible uniquem
 Responsive Design : Le site sera entièrement responsive, garantissant une utilisation optimale sur tous les types d'appareils.
 Documentation de la Mise en Ligne : La procédure de mise en ligne sera documentée.
 Déploiement Continu : Le projet adoptera une approche de déploiement continu, avec des mises en production régulières après chaque mise à jour fonctionnelle majeure pour assurer un suivi et une vérification continue du bon fonctionnement du site.
-Design
+
+# Design
 Pour visualiser le design du site, consultez le design Figma: https://www.figma.com/design/1nJLtS3FN03uEWhfou1mIo/Untitled?node-id=0-1&t=oMOfb8WjpYaOodjy-1
 
 Délai de Réalisation
