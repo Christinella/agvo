@@ -27,7 +27,7 @@ Pour les administrateurs, le site offre des fonctionnalités de gestion des voya
 
 ## Design
 
-Pour visualiser le design du site, consultez le [design Figma](https://www.figma.com/file/EXAMPLE_LINK). 
+Pour visualiser le design du site, consultez le [design Figma](https://www.figma.com/design/1nJLtS3FN03uEWhfou1mIo/Untitled?node-id=0-1&t=oMOfb8WjpYaOodjy-1). 
 
 ## Délai de Réalisation
 
