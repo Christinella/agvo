@@ -2,16 +2,12 @@
 
 // pages/index.jsx (ou le fichier où vous souhaitez inclure la Navbar)
 import Image from 'next/image';
-import Navbar from './components/Navbar';
 import styles from '../Home.module.css';// Assurez-vous que le chemin est correct pour vos styles
 
 
 export default function Home() {
   return (
     <div>
-      {/* Inclure la Navbar en haut de la page */}
-      <Navbar />
-
       {/* Image pleine largeur avec texte et bouton */}
       <div className={styles.imageContainer}>
         <div className={styles.overlay}>
